@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 220 60% 50%;
+    --accent: 180 70% 45%;
+    --bg: 225 20% 15%;
+    --surface: 220 20% 20%;
+    --text: 0 0% 95%;
+    --muted: 0 0% 70%;
+  }
+  
+  body {
+    @apply bg-bg text-text;
+    background-color: hsl(var(--bg));
+    color: hsl(var(--text));
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md transition-colors duration-200;
+    background-color: hsl(var(--primary));
+  }
+  
+  .btn-secondary {
+    @apply bg-surface hover:bg-surface/90 text-text px-4 py-2 rounded-md transition-colors duration-200 border border-white/20;
+    background-color: hsl(var(--surface));
+    color: hsl(var(--text));
+  }
+  
+  .card {
+    @apply bg-surface rounded-lg p-6 shadow-card border border-white/10;
+    background-color: hsl(var(--surface));
+  }
+  
+  .card-display {
+    @apply bg-white rounded-lg p-8 shadow-card border-2 border-gray-300 text-center text-black font-bold text-4xl min-h-[120px] flex items-center justify-center;
+  }
+  
+  .input-field {
+    @apply bg-surface border border-white/20 rounded-md px-3 py-2 text-text placeholder:text-muted focus:border-accent focus:outline-none;
+    background-color: hsl(var(--surface));
+    color: hsl(var(--text));
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

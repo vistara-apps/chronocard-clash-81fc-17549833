@@ -1,0 +1,14 @@
+{
+  "name": "ChronoCard Clash",
+  "description": "ChronoCard Clash is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://81fc6ca2-f5df-4f5b-9e48-c220a3af2041.vistara.dev",
+  "properties": {
+    "app": {
+      "name": "ChronoCard Clash",
+      "description": "ChronoCard Clash is a Base Mini App built with Zara.",
+      "url": "https://81fc6ca2-f5df-4f5b-9e48-c220a3af2041.vistara.dev",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
