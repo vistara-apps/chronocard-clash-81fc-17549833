@@ -10,14 +10,14 @@
     "subtitle": "Built with Zara",
     "description": "ChronoCard Clash is a Base Mini App built with Zara.",
     "iconUrl": "https://0co.to/images/zara-2.png",
-    "homeUrl": "https://81fc6ca2-f5df-4f5b-9e48-c220a3af2041.vistara.dev",
-    "splashImageUrl": "https://dummyimage.com/200x200/0a0b0d/ffffff.png&text=Splash",
+    "homeUrl": "https://81fc6ca2f5df4f5b9e48c220a3af2041-s0fy-dozgfgfth-vistara.vercel.app",
+    "splashImageUrl": "https://81fc6ca2f5df4f5b9e48c220a3af2041-s0fy-dozgfgfth-vistara.vercel.app/splash.png",
     "splashBackgroundColor": "#000000",
-    "heroImageUrl": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Hero",
+    "heroImageUrl": "https://81fc6ca2f5df4f5b9e48c220a3af2041-s0fy-dozgfgfth-vistara.vercel.app/image.png",
     "tagline": "ChronoCard Clash",
     "screenshotUrls": [
-      "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Shot1",
-      "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Shot2"
+      "https://81fc6ca2f5df4f5b9e48c220a3af2041-s0fy-dozgfgfth-vistara.vercel.app/screenshot.png",
+      "https://81fc6ca2f5df4f5b9e48c220a3af2041-s0fy-dozgfgfth-vistara.vercel.app/screenshot.png"
     ],
     "primaryCategory": "social",
     "tags": [
@@ -25,6 +25,6 @@
       "miniapp",
       "onchainkit"
     ],
-    "webhookUrl": "https://81fc6ca2-f5df-4f5b-9e48-c220a3af2041.vistara.dev/api/webhook"
+    "webhookUrl": "https://81fc6ca2f5df4f5b9e48c220a3af2041-s0fy-dozgfgfth-vistara.vercel.app/api/webhook"
   }
 }
