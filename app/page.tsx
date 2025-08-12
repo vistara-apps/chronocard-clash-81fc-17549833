@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
@@ -9,6 +8,7 @@ import AppHeader from './components/AppHeader'
 import GameBoard from './components/GameBoard'
 import ChallengeButton from './components/ChallengeButton'
 import ThemeSelector from './components/ThemeSelector'
+import ErrorBoundary, { GameErrorFallback } from './components/ErrorBoundary'
 import { GameSession, User, GameTheme, Challenge } from './types/game'
 
 export default function Home() {
@@ -175,15 +175,18 @@ export default function Home() {
         )}
 
         {/* Navigation Tabs */}
-        <div className="flex space-x-1 mb-6 bg-surface rounded-lg p-1">
+        <div className="flex space-x-1 mb-6 bg-surface rounded-lg p-1" role="tablist" aria-label="Game navigation">
           {(['play', 'challenges', 'themes'] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`flex-1 py-2 px-3 rounded-md text-sm font-semibold transition-colors ${
+              role="tab"
+              aria-selected={activeTab === tab}
+              aria-controls={`${tab}-panel`}
+              className={`flex-1 py-2 px-3 rounded-md text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50 ${
                 activeTab === tab 
-                  ? 'bg-primary text-white' 
-                  : 'text-muted hover:text-text'
+                  ? 'bg-primary text-white shadow-lg' 
+                  : 'text-muted hover:text-text hover:bg-surface/50'
               }`}
             >
               {tab === 'play' && '🎮 Play'}
@@ -195,7 +198,7 @@ export default function Home() {
 
         {/* Tab Content */}
         {activeTab === 'play' && (
-          <div className="space-y-6">
+          <div className="space-y-6" role="tabpanel" id="play-panel" aria-labelledby="play-tab">
             {!gameSession || !gameSession.isActive ? (
               <div className="text-center space-y-4">
                 <div className="card">
@@ -203,7 +206,11 @@ export default function Home() {
                   <p className="text-muted mb-4">
                     Guess if the next card is higher or lower. Build streaks for bonus points!
                   </p>
-                  <button onClick={startNewGame} className="btn-primary w-full">
+                  <button 
+                    onClick={startNewGame} 
+                    className="btn-primary w-full hover:scale-105 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    aria-label="Start a new card guessing game"
+                  >
                     🎴 Start New Game
                   </button>
                 </div>
@@ -214,16 +221,18 @@ export default function Home() {
                 />
               </div>
             ) : (
-              <GameBoard 
-                gameSession={gameSession} 
-                onGameUpdate={handleGameUpdate}
-              />
+              <ErrorBoundary fallback={GameErrorFallback}>
+                <GameBoard 
+                  gameSession={gameSession} 
+                  onGameUpdate={handleGameUpdate}
+                />
+              </ErrorBoundary>
             )}
           </div>
         )}
 
         {activeTab === 'challenges' && (
-          <div className="space-y-4">
+          <div className="space-y-4" role="tabpanel" id="challenges-panel" aria-labelledby="challenges-tab">
             <div className="flex justify-between items-center">
               <h2 className="text-lg font-bold">Challenges</h2>
               <ChallengeButton 
@@ -266,7 +275,7 @@ export default function Home() {
         )}
 
         {activeTab === 'themes' && (
-          <div className="space-y-4">
+          <div className="space-y-4" role="tabpanel" id="themes-panel" aria-labelledby="themes-tab">
             <h2 className="text-lg font-bold">Card Themes</h2>
             <ThemeSelector 
               themes={themes}

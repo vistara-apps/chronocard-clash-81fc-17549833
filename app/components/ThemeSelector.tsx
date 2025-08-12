@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -41,9 +40,11 @@ export default function ThemeSelector({
             key={theme.id}
             onClick={() => theme.isUnlocked && onThemeChange(theme.id)}
             disabled={!theme.isUnlocked}
-            className={`card-interactive text-left relative ${
-              selectedTheme === theme.id ? 'border-accent shadow-glow' : ''
-            } ${!theme.isUnlocked ? 'opacity-50 cursor-not-allowed' : ''}`}
+            aria-label={`Select ${theme.name} theme${!theme.isUnlocked ? ' (locked)' : ''}`}
+            aria-pressed={selectedTheme === theme.id}
+            className={`card-interactive text-left relative focus:outline-none focus:ring-2 focus:ring-accent/50 ${
+              selectedTheme === theme.id ? 'border-accent shadow-glow ring-2 ring-accent/30' : ''
+            } ${!theme.isUnlocked ? 'opacity-50 cursor-not-allowed hover:scale-100' : ''}`}
           >
             <div className="aspect-video rounded-md mb-2 bg-gradient-to-br"
                  style={{ background: theme.background }}>
@@ -71,7 +72,8 @@ export default function ThemeSelector({
       <div className="flex items-center justify-between mb-4">
         <button 
           onClick={prevTheme}
-          className="btn-secondary w-10 h-10 rounded-full flex items-center justify-center"
+          aria-label="Previous theme"
+          className="btn-secondary w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50"
         >
           ←
         </button>
@@ -91,7 +93,8 @@ export default function ThemeSelector({
         
         <button 
           onClick={nextTheme}
-          className="btn-secondary w-10 h-10 rounded-full flex items-center justify-center"
+          aria-label="Next theme"
+          className="btn-secondary w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50"
         >
           →
         </button>

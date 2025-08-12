@@ -1,4 +1,3 @@
-
 'use client'
 
 import { Card } from '../types/game'
@@ -9,20 +8,28 @@ interface PlayingCardProps {
   isRevealed?: boolean
   isCurrentCard?: boolean
   className?: string
+  theme?: {
+    cardBack: string
+    background: string
+  }
 }
 
 export default function PlayingCard({ 
   card, 
   isRevealed = true, 
   isCurrentCard = false,
-  className = '' 
+  className = '',
+  theme
 }: PlayingCardProps) {
   if (!card || !isRevealed) {
     return (
-      <div className={`game-card game-card-back ${isCurrentCard ? 'animate-pulse-glow' : ''} ${className}`}>
-        <div className="text-center">
+      <div 
+        className={`game-card ${isCurrentCard ? 'animate-pulse-glow' : ''} ${className}`}
+        style={theme ? { background: theme.cardBack } : {}}
+      >
+        <div className="text-center text-white">
           <div className="text-3xl mb-1">🎴</div>
-          <div className="text-xs">CHRONO</div>
+          <div className="text-xs font-semibold">CHRONO</div>
         </div>
       </div>
     )
