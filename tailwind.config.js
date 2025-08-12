@@ -32,6 +32,9 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 200ms ease-in-out',
         'slide-up': 'slideUp 200ms ease-in-out',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'card-flip': 'cardFlip 600ms ease-in-out',
+        'bounce-in': 'bounceIn 400ms ease-out',
       },
     },
   },
